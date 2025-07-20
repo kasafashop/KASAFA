@@ -1,1 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KASAFA Craft and Fashion - Kreasi Teman Gayamu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --primary-color: #3EA3F5;
+            --light-blue: #E0F2F7; /* A softer light blue for backgrounds */
+            --text-color: #333;
+            --light-text: #666;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: #f8f9fa; /* Light background for the whole page */
+            overflow-x: hidden; /* Mencegah scrolling horizontal di mobile */
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,.08);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+        }
+
+        .btn-primary-kasafa {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary-kasafa:hover {
+            background-color: #2a8ad2; /* Slightly darker blue on hover */
+            border-color: #2a8ad2;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+            position: relative; /* Untuk positioning hiasan */
+            overflow: hidden; /* Memastikan hiasan tidak keluar dari section */
+        }
+        @media (max-width: 767.98px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+
+        .bg-light-blue {
+            background-color: var(--light-blue);
+        }
+
+        .text-primary-kasafa {
+            color: var(--primary-color) !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        /* Boxed Text Style */
+        .info-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1; /* Pastikan box di atas hiasan */
+        }
+        .info-box ul li {
+            padding-left: 0; /* Override default list padding */
+        }
+
+        .card {
+            border: none;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden; /* Agar gambar tidak keluar */
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .img-fluid-product {
+            max-height: 300px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .product-carousel .carousel-item img {
+            height: 400px; /* Tinggi gambar carousel */
+            object-fit: cover;
+            width: 100%;
+        }
+        @media (max-width: 767.98px) {
+            .product-carousel .carousel-item img {
+                height: 250px; /* Tinggi gambar carousel di mobile */
+            }
+        }
+
+        .list-unstyled li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .list-unstyled li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        .list-unstyled.social-links li i {
+            font-size: 1.5rem; /* Ukuran ikon sosmed */
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card i.bi-quote {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .testimonial-card strong {
+            display: block;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+
+        .faq-item .accordion-button {
+            background-color: var(--light-blue);
+            color: var(--primary-color);
+            font-weight: bold;
+            border-radius: 8px !important;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .faq-item .accordion-button:not(.collapsed) {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .faq-item .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(62, 163, 245, 0.25);
+        }
+
+        .faq-item .accordion-body {
+            background-color: white;
+            color: var(--text-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #d0e8f7; /* Lighter white on hover */
+        }
+        footer .social-links a {
+            font-size: 1.4rem;
+            margin-right: 15px;
+        }
+
+        /* Simple Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            opacity: 0; /* Sembunyikan elemen sebelum animasi */
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Delay for sequential animations */
+        .delay-02s { animation-delay: 0.2s; }
+        .delay-04s { animation-delay: 0.4s; }
+        .delay-06s { animation-delay: 0.6s; }
+        .delay-08s { animation-delay: 0.8s; }
+        .delay-1s { animation-delay: 1s; }
+        .delay-12s { animation-delay: 1.2s; }
+
+        /* Decorative Lines/Shapes */
+        .decoration-line-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 5px;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            opacity: 0.2;
+            display: none; /* Default hidden, show on larger screens */
+        }
+        .decoration-line-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 5px;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            opacity: 0.2;
+            display: none; /* Default hidden, show on larger screens */
+        }
+        @media (min-width: 992px) { /* Show on large screens and up */
+            .decoration-line-left, .decoration-line-right {
+                display: block;
+            }
+        }
+
+        /* Specific decorations for sections */
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 5%;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        #products::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            right: 5%;
+            width: 70px;
+            height: 70px;
+            border: 5px solid var(--primary-color);
+            opacity: 0.15;
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://tools.class.my.id/gambar/img/1752964935_687c1f47470f3.png" alt="KASAFA Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Produk Unggulan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#excellence">Keunggulan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary-kasafa ms-lg-3" href="https://wa.me/6281466826142?text=Halo%20kak%2C%20mau%20info%20tentang%20produk%20ini" target="_blank">Hubungi Kami</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="d-flex align-items-center bg-light-blue section-padding" style="min-height: 100vh;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start animate-fade-in">
+                    <h1 class="display-4 fw-bold text-primary-kasafa">KASAFA Craft and Fashion</h1>
+                    <p class="lead mb-4">Kreasi Teman Gayamu – Inovasi Berkelanjutan, Sentuhan Budaya Lokal</p>
+                    <a href="#about" class="btn btn-primary-kasafa btn-lg animate-fade-in delay-02s">Pelajari Lebih Lanjut <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0 text-center animate-fade-in delay-04s">
+                    <img src="https://tools.class.my.id/gambar/img/1752975976_687c4a682b826.jpg" class="img-fluid rounded shadow" alt="KASAFA Company Profile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="mb-4 animate-fade-in">Tentang KASAFA Craft and Fashion</h2>
+                    <p class="lead animate-fade-in delay-02s">
+                        KASAFA adalah unit usaha kreatif yang bergerak di bidang craft dan fashion dengan mengusung konsep keberlanjutan dan pelestarian budaya. Produk-produk KASAFA diciptakan dengan semangat **zero waste**, mengedepankan pemanfaatan bahan-bahan ramah lingkungan dan lokal seperti kain tenun troso, batik, dan hasil olahan ecoprint dari dedaunan alami.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4 animate-fade-in delay-04s">
+                    <div class="info-box">
+                        <h3 class="text-primary-kasafa"><i class="bi bi-person-fill me-2"></i> Profil Bisnis</h3>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-shop"></i> <strong>Nama Usaha:</strong> KASAFA Craft and Fashion</li>
+                            <li><i class="bi bi-basket"></i> <strong>Bidang Usaha:</strong> Kerajinan tangan dan fashion</li>
+                            <li><i class="bi bi-calendar-check"></i> <strong>Tahun Berdiri:</strong> 2019</li>
+                            <li><i class="bi bi-geo-alt"></i> <strong>Lokasi:</strong> Mijen, Kaliwungu, Kudus</li>
+                            <li><i class="bi bi-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/kartika.kasafa" target="_blank" class="text-decoration-none text-primary-kasafa">@kartika.kasafa</a></li>
+                            <li><i class="bi bi-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/6281466826142" target="_blank" class="text-decoration-none text-primary-kasafa">0814-6682-6142</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 animate-fade-in delay-06s">
+                    <div class="info-box">
+                        <h3 class="text-primary-kasafa"><i class="bi bi-eye-fill me-2"></i> Visi Kami</h3>
+                        <p>Meningkatkan kesejahteraan keluarga dan lingkungan, serta menjadi inspirasi positif bagi masyarakat umum melalui karya yang bermakna dan berkelanjutan.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle"></i> Menjadi pusat belanja souvenir dan kerajinan terkemuka</li>
+                            <li><i class="bi bi-check-circle"></i> Mengembangkan produk kerajinan yang berkelanjutan dan ramah lingkungan</li>
+                            <li><i class="bi bi-check-circle"></i> Memberikan edukasi kerajinan kepada masyarakat</li>
+                            <li><i class="bi bi-check-circle"></i> Memberdayakan komunitas lokal dan mengentaskan pengangguran</li>
+                            <li><i class="bi bi-check-circle"></i> Mengoptimalkan pemanfaatan sumber daya alam sekitar dengan prinsip zero waste</li>
+                            <li><i class="bi bi-check-circle"></i> Terus berinovasi dan memperluas akses pemasaran untuk mencapai kesuksesan jangka panjang.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 animate-fade-in delay-08s">
+                    <div class="info-box">
+                        <h3 class="text-primary-kasafa"><i class="bi bi-graph-up-arrow me-2"></i> Misi Kami</h3>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-patch-check"></i> Menciptakan berbagai produk unik dan cantik yang memiliki nilai estetika dan fungsionalitas tinggi.</li>
+                            <li><i class="bi bi-patch-check"></i> Memanfaatkan bahan daur ulang, seperti kain perca, untuk menghasilkan kreasi yang mendukung konsep zero waste.</li>
+                            <li><i class="bi bi-patch-check"></i> Menyediakan produk custom desain untuk memenuhi kebutuhan personal dan menciptakan koneksi emosional dengan pelanggan.</li>
+                            <li><i class="bi bi-patch-check"></i> Menyalurkan kreativitas dalam proses produksi untuk menghasilkan karya yang tidak hanya indah, tetapi juga bermanfaat bagi lingkungan.</li>
+                            <li><i class="bi bi-patch-check"></i> Membangun komunitas yang mendukung produktivitas, kreativitas, dan pemberdayaan masyarakat, khususnya keluarga.</li>
+                            <li><i class="bi bi-patch-check"></i> Menjadi pelopor usaha kreatif yang menginspirasi masyarakat untuk lebih peduli pada lingkungan sekaligus mendorong inovasi lokal yang berdaya saing global.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section-padding bg-light-blue">
+        <div class="container">
+            <h2 class="text-center mb-5 animate-fade-in">Produk Unggulan KASAFA</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col animate-fade-in delay-02s">
+                    <div class="card h-100">
+                        <div id="carouselTotebag" class="carousel slide product-carousel" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://tools.class.my.id/gambar/img/1752976103_687c4ae771367.jpg" class="d-block w-100 img-fluid-product" alt="Totebag Lipat 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://tools.class.my.id/gambar/img/1752976141_687c4b0d748f8.jpg" class="d-block w-100 img-fluid-product" alt="Totebag Lipat 2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTotebag" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselTotebag" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-kasafa">Totebag Lipat Multifungsi</h5>
+                            <p class="card-text">Terbuat dari berbagai jenis kain (waterproof, kanvas, blacu, katun). Didesain praktis dan modis dengan kombinasi motif khas Indonesia: tenun troso, batik, dan ecoprint. Cocok untuk belanja, kegiatan harian, hingga souvenir.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col animate-fade-in delay-04s">
+                    <div class="card h-100">
+                        <img src="https://tools.class.my.id/gambar/img/1752976300_687c4bac8776c.jpg" class="card-img-top img-fluid-product" alt="Gantungan Kunci">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-kasafa">Gantungan Kunci Custom & Tematik</h5>
+                            <p class="card-text">Dibuat dari bahan resin, kayu, atau akrilik berkualitas. Menawarkan desain tematik yang unik dan bisa dipesan sesuai keinginan. Cocok untuk souvenir pernikahan, ulang tahun, acara komunitas, maupun merchandise perusahaan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col animate-fade-in delay-06s">
+                    <div class="card h-100">
+                        <div id="carouselEcoprint" class="carousel slide product-carousel" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <di

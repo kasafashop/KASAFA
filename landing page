@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KASAFA Craft and Fashion - For a Better Earth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3EA3F5; /* Biru ketenangan */
+            --text-color: #333;
+            --light-bg: #e9f5ff; /* Soft blue for light background */
+            --soft-white: #fefefe;
+            --dark-bg: #212529;
+            --muted-text: #6c757d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--soft-white); /* Base background */
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #2a8cdb;
+            border-color: #2a8cdb;
+        }
+
+        .bg-primary-custom {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .text-primary-custom {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 80px 0;
+            background-color: var(--soft-white); /* Default section background */
+        }
+
+        section:nth-child(even) { /* Alternate background for sections */
+            background-color: var(--light-bg);
+        }
+
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://tools.class.my.id/gambar/img/1752964262_687c1ca66d6f3.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+
+        /* Styling Kartu Produk dan Keunggulan */
+        .card-custom {
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            height: 100%; /* Ensure cards in a row have equal height */
+        }
+
+        .card-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-custom .card-body {
+            padding: 25px;
+        }
+
+        .card-custom .card-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .product-image-container {
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Testimoni */
+        .testimonial-item {
+            background-color: var(--soft-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            color: var(--text-color);
+        }
+
+        .testimonial-item .customer-info {
+            font-weight: 600;
+            margin-top: 15px;
+            color: var(--muted-text);
+        }
+
+        /* FAQ Accordion */
+        .accordion-button:not(.collapsed) {
+            color: #fff;
+            background-color: var(--primary-color);
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-item {
+            border: 1px solid rgba(0,0,0,.1);
+            margin-bottom: 10px;
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background-color: var(--light-bg);
+        }
+
+        .accordion-body {
+            background-color: var(--soft-white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1.2rem;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .product-image-container {
+                height: 250px; /* Adjust height for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://tools.class.my.id/gambar/img/1752964935_687c1f47470f3.png" alt="KASAFA Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#excellence">Keunggulan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white ms-lg-3" href="https://wa.me/6281466826142?text=Halo%20kak%2C%20mau%20info%20tentang%20produk%20ini" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i>Hubungi Kami
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="d-flex align-items-center justify-content-center text-center">
+        <div class="container">
+            <h1 class="display-1 fw-bold mb-4">KASAFA Craft and Fashion</h1>
+            <p class="lead mb-5">For a Better Earth</p>
+            <a href="#products" class="btn btn-primary btn-lg">Lihat Produk Kami <i class="fas fa-arrow-down ms-2"></i></a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://tools.class.my.id/gambar/img/1752964262_687c1ca66d6f3.jpg" class="img-fluid rounded shadow-sm" alt="KASAFA Company Profile">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold text-primary-custom mb-4">Tentang KASAFA Craft and Fashion</h2>
+                    <p class="lead mb-4">
+                        KASAFA adalah unit usaha kreatif yang bergerak di bidang **craft dan fashion** dengan mengusung konsep **keberlanjutan dan pelestarian budaya**. Produk-produk KASAFA diciptakan dengan semangat **zero waste**, mengedepankan pemanfaatan bahan-bahan ramah lingkungan dan lokal seperti **kain perca, kain tenun Troso, batik, dan hasil olahan ecoprint dari dedaunan alami.**
+                    </p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Nama Usaha:</strong> KASAFA Craft and Fashion</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Bidang Usaha:</strong> Kerajinan tangan dan fashion ramah lingkungan</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Tahun Berdiri:</strong> 2019</li>
+                        <li><i class="fas fa-map-marker-alt text-success me-2"></i> <strong>Lokasi:</strong> Mijen, Kaliwungu, Kudus</li>
+                        <li><i class="fab fa-instagram text-success me-2"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/kartika.kasafa" target="_blank" class="text-decoration-none text-primary-custom">@kartika.kasafa</a></li>
+                        <li><i class="fab fa-whatsapp text-success me-2"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/6281466826142" target="_blank" class="text-decoration-none text-primary-custom">0814-6682-6142</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6 mb-4">
+                    <h3 class="fw-bold text-primary-custom mb-3">Visi Kami</h3>
+                    <p class="mb-3">Menjadi pelopor bisnis craft & fashion yang berdaya guna, bernilai budaya, dan ramah lingkungan.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h3 class="fw-bold text-primary-custom mb-3">Misi Kami</h3>
+                    <ul>
+                        <li>Mengurangi limbah tekstil melalui pemanfaatan kain perca.</li>
+                        <li>Meningkatkan produktivitas ibu rumah tangga dan komunitas lokal.</li>
+                        <li>Menghadirkan produk kreatif, berkualitas, dan bermakna.</li>
+                        <li>Memperkenalkan keindahan kain Indonesia kepada pasar yang lebih luas.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <h3 class="fw-bold text-primary-custom">Slogan: KASAFA – Craft and Fashion for a Better Earth</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center text-primary-custom mb-5">Produk Unggulan Kami</h2>
+            <div class="product-image-container mb-5">
+                <img src="https://tools.class.my.id/gambar/img/1752967006_687c275eb6904.jpg" class="img-fluid" alt="KASAFA Products">
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-custom h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-custom">1. Totebag Lipat Multifungsi</h5>
+                            <p class="card-text">
+                                Terbuat dari berbagai jenis kain seperti waterproof, kanvas, blacu, dan katun. Didesain praktis dan modis dengan kombinasi motif khas Indonesia: tenun Troso, batik, dan ecoprint. Cocok digunakan untuk belanja, menyimpan dokumen, kegiatan harian, hingga souvenir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-custom h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-custom">2. Gantungan Kunci Custom & Tematik</h5>
+                            <p class="card-text">
+                                Dibuat dari bahan resin, kayu, atau akrilik berkualitas. Menawarkan desain tematik yang unik dan bisa dipesan sesuai keinginan. Cocok untuk souvenir pernikahan, ulang tahun, acara komunitas, maupun merchandise perusahaan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-custom h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-custom">3. Kain Ecoprint Handmade</h5>
+                            <p class="card-text">
+                                Dihasilkan dari proses pewarnaan alami menggunakan dedaunan lokal. Tiap lembar kain memiliki corak unik dan tidak ada yang sama. Cocok untuk bahan pakaian, kerajinan, hingga dekorasi rumah.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-custom h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-custom">4. Produk Fashion dan Aksesori</h5>
+                            <p class="card-text">
+                                Menjual pakaian ready to wear. Tersedia pula aksesori handmade yang mendukung penampilan gaya etnik modern.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="excellence">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center text-primary-custom mb-5">Mengapa Memilih Totebag Lipat KASAFA?</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 text-center p-3">
+                        <i class="fas fa-star fa-3x text-primary-custom mb-3"></i>
+                        <h5 class="fw-bold">Bahan Berkualitas dan Tahan Lama</h5>
+                        <p>Terbuat dari pilihan kain seperti waterproof, kanvas, blacu, dan katun yang kuat, ringan, dan nyaman digunakan.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 text-center p-3">
+                        <i class="fas fa-compress-arrows-alt fa-3x text-primary-custom mb-3"></i>
+                        <h5 class="fw-bold">Desain Praktis dan Mudah Dilipat</h5>
+                        <p>Model lipat memudahkan penyimpanan—hemat ruang di tas, laci, atau kendaraan.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 text-center p-3">
+                        <i class="fas fa-palette fa-3x text-primary-custom mb-3"></i>
+                        <h5 class="fw-bold">Sentuhan Etnik Modern</h5>
+                        <p>Menggabungkan motif-motif khas Indonesia seperti tenun troso, batik, dan ecoprint.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 text-center p-3">
+                        <i class="fas fa-exchange-alt fa-3x text-primary-custom mb-3"></i>
+                        <h5 class="fw-bold">Multifungsi dan Serbaguna</h5>
+                        <p>Cocok untuk belanja, aktivitas harian, kuliah, kantor, hingga souvenir acara.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 text-center p-3">
+                        <i class="fas fa-leaf fa-3x text-primary-custom mb-3"></i>
+                        <h5 class="fw-bold">Ramah Lingkungan dan Bernilai Sosial</h5>
+                        <p>Diproduksi secara handmade dengan prinsip zero waste dan memberdayakan perajin lokal.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 text-center p-3">
+                        <i class="fas fa-paint-roller fa-3x text-primary-custom mb-3"></i>
+                        <h5 class="fw-bold">Custom Desain untuk Berbagai Kebutuhan</h5>
+                        <p>Menerima pesanan khusus sesuai permintaan desain, jenis kain, warna, dan ukuran.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center text-primary-custom mb-5">Apa Kata Mereka?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="testimonial-item text-center">
+                        <p class="fs-5">🌟 "Tas lipat dari KASAFA benar-benar cantik dan super berguna! Aku bawa ke kantor setiap hari—muat banyak, ringan, dan tetap stylish. Motifnya juga unik, bikin beda dari yang lain!"</p>
+                        <div class="customer-info">— Dian, wanita karir, Semarang</div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-6">
+                    <div class="testimonial-item text-center">
+                        <p class="fs-5">🎒 "Simpel, praktis, dan bisa dilipat kecil! Aku suka banget karena bisa request ukuran dan bahan. Waktu ke kampus bawa makalah seminar, totebag ini jadi andalan. Desainnya etnik modern, bikin tampil percaya diri."</p>
+                        <div class="customer-info">— Silva, dosen</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="lead fw-bold">💬 Sekali coba, pasti pengen nambah lagi!</p>
+                <p class="fs-5">Bisa request desain, ukuran, dan bahan sesuai kebutuhanmu. Cocok buat kerja, kuliah, belanja, sampai souvenir acara.</p>
+                <a href="https://wa.me/6281466826142?text=Halo%2C%20saya%20mau%20info%20lebih%20lanjut%20tentang%20produk%20ini" target="_blank" class="btn btn-primary btn-lg mt-3">
+                    🛍️ Klik sekarang <i class="fab fa-whatsapp ms-2"></i>
+                </a>
+                <p class="mt-2 text-muted">Stok terbatas. Pesan sekarang sebelum kehabisan!</p>
+                <p class="mt-2 text-muted">#TotebagLipatKASAFA #PraktisBergaya #Craft</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to-buy" class="bg-primary-custom text-white text-center py-5">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-4">Dapatkan Totebag Lipat KASAFA Sekarang!</h2>
+            <p class="lead mb-4">Hubungi kami via WhatsApp untuk pemesanan dan informasi lebih lanjut.</p>
+            <div class="card bg-white text-dark p-4 mx-auto" style="max-width: 400px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                <h3 class="fw-bold mb-3">Harga Spesial!</h3>
+                <p class="fs-4 text-decoration-line-through">Normal: Rp 35.000</p>
+                <p class="fs-2 fw-bold text-success">Promo: Rp 25.000</p>
+                <a href="https://wa.me/6281466826142?text=Halo%2C%20saya%20mau%20info%20lebih%20lanjut%20tentang%20produk%20ini" target="_blank" class="btn btn-primary btn-lg mt-3">
+                    <i class="fas fa-info-circle me-2"></i>Info Produk & Pemesanan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center text-primary-custom mb-5">Pertanyaan Umum (FAQ)</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            1. Totebag lipat KASAFA terbuat dari bahan apa saja?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Totebag KASAFA dibuat dari berbagai bahan berkualitas seperti kain waterproof, kanvas, blacu, dan katun, serta bisa dikombinasikan dengan tenun troso, batik, atau ecoprint sesuai pesanan.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            2. Apakah bisa request desain atau ukuran sendiri?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Bisa! KASAFA melayani pemesanan custom, termasuk desain, ukuran, warna, dan kombinasi kain sesuai kebutuhanmu, baik untuk pribadi maupun souvenir acara.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            3. Berapa harga totebag lipat KASAFA?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Harga menyesuaikan dengan bahan, ukuran, dan tingkat customisasi. Untuk estimasi harga, silakan klik WhatsApp kami: <a href="https://wa.me/6281466826142" target="_blank" class="text-primary-custom">wa.me/6281466826142</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            4. Apakah tersedia harga khusus untuk pemesanan dalam jumlah banyak?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Ya, kami menyediakan harga grosir atau harga khusus untuk pemesanan dalam jumlah tertentu, cocok untuk keperluan seminar, komunitas, instansi, atau acara pribadi.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            5. Totebag ini bisa digunakan untuk apa saja?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Totebag KASAFA multifungsi: bisa dipakai untuk belanja, ke kampus, kantor, travelling, atau sebagai hadiah dan souvenir yang berkesan.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            6. Bagaimana cara perawatannya?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Cuci dengan tangan menggunakan bahan lembut, jangan disikat terlalu keras. Jemur di tempat teduh agar warna motif tetap awet.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            7. Kirim ke seluruh Indonesia?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Tentu! Kami melayani pengiriman ke seluruh wilayah Indonesia melalui jasa ekspedisi terpercaya.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p class="lead">Masih ada pertanyaan? Langsung chat kami di WA:</p>
+                <a href="https://wa.me/6281466826142" target="_blank" class="btn btn-primary btn-lg">
+                    <i class="fab fa-whatsapp me-2"></i> Klik di sini untuk konsultasi dan order
+                </a>
+                <p class="mt-3 fs-5">✨ Custom totebag impianmu sekarang juga bersama KASAFA!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="https://www.facebook.com/share/1W3LnyB91t/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/kartika.kasafa?igsh=Y3owaWl4cHVsa3lk" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@kasafashop" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://shopee.co.id/kasafashop" target="_blank" aria-label="Shopee"><i class="fas fa-shopping-bag"></i></a>
+                <a href="https://wa.me/6281466826142" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="mb-0">© 2025 KASAFA Craft and Fashion. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
